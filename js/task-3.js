@@ -1,16 +1,7 @@
-function filterArray(numbers, value) {
-  const filtered = [];
-  for (let i = 0; i < numbers.length; i++) {
-    if (numbers[i] > value) {
-      filtered.push(numbers[i]);
-    }
-  }
-  return filtered;
-}
+const input = document.querySelector("#name-input");
+const output = document.querySelector("#name-output");
 
-
-console.log(filterArray([1, 2, 3, 4, 5], 3)); // [4, 5]
-console.log(filterArray([1, 2, 3, 4, 5], 4)); // [5]
-console.log(filterArray([1, 2, 3, 4, 5], 5)); // []
-console.log(filterArray([12, 24, 8, 41, 76], 38)); // [41, 76]
-console.log(filterArray([12, 24, 8, 41, 76], 20)); // [24, 41, 76]
+input.addEventListener("input", event => {
+  const value = event.currentTarget.value.trim();
+  output.textContent = value === "" ? "Anonymous" : value;
+});
