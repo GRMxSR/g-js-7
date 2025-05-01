@@ -25,14 +25,14 @@ const images = [
   },
 ];
 
-const gallery = document.querySelector(".gallery");
-gallery.classList.add("gallery-flex");
+const gallery = document.querySelector('.gallery');
+const galleryItems = images.map(({ url, alt }) => {
+  const li = document.createElement('li');
+  const img = document.createElement('img');
+  img.src = url;
+  img.alt = alt;
+  li.appendChild(img);
+  return li;
+});
 
-const markup = images
-  .map(
-    ({ url, alt }) =>
-      `<li class="gallery-item"><img src="${url}" alt="${alt}" width="300" /></li>`
-  )
-  .join("");
-
-gallery.insertAdjacentHTML("beforeend", markup);
+gallery.append(...galleryItems);
